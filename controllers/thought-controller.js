@@ -64,7 +64,7 @@ const thoughtControllers = {
             });
     },
 
-    createReaction({ params, body }, res) {
+    createReactions({ params, body }, res) {
         //creating thought reaction
         Thoughts.findOneAndUpdate(
             { _id: params.thoughtId },

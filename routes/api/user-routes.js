@@ -18,14 +18,14 @@ router
 // put and delete
 router
   .route('/:id')
-  .get(getUserById)
-  .put(updateUser)
-  .delete(deleteUser);
+  .get(getUsersById)
+  .put(updateUsers)
+  .delete(deleteUsers);
 
 //post and delete
 router
   .route('/:userId/friends/:friendId')
-  .post(addFriend)
-  .delete(removeFriend)
+  .post(addFriends)
+  .delete(removeFriends)
 
 module.exports = router;
