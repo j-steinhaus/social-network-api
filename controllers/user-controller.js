@@ -70,7 +70,7 @@ const userControllers = {
         )
             .then(dbUserData => {
                 if (!dbUserData) {
-                    res.status(404).json({ message: 'Sorry. User id or friend id is incorrect.' });
+                    res.status(404).json({ message: 'Error! No user/friend found with that specific id' });
                     return;
                 }
                 res.json(dbUserData);
@@ -86,7 +86,7 @@ const userControllers = {
         )
             .then(dbUserData => {
                 if (!dbUserData) {
-                    res.status(404).json({ message: 'Sorry. User id or friend id is incorrect.' });
+                    res.status(404).json({ message: 'Error! No user/friend found with that specific id' });
                     return;
                 }
                 res.json(dbUserData);
@@ -100,7 +100,7 @@ const userControllers = {
         User.findOneAndDelete({ _id: params.id })
             .then(dbUserData => {
                 if (!dbUserData) {
-                    res.status(404).json({ message: 'No user found with this id!' });
+                    res.status(404).json({ message: 'Error! No user found with that specific id' });
                     return;
                 }
                 res.json(dbUserData);
