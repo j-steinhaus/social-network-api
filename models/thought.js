@@ -1,6 +1,6 @@
 //accessing a model
 const { Schema, model } = require('mongoose');
-const formatCreationDate = require('../utils/formatCreationDate');
+const moment = require('moment');
 
 //defining model
 const ReactionSchema = new Schema(
@@ -21,8 +21,8 @@ const ReactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            get: createdAtTime => formatCreationDate(createdAtTime)
-        }
+            get: createdAtVal => moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a')
+          }
       },
       {
         toJSON: {
