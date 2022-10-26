@@ -124,28 +124,19 @@ const thoughtControllers = {
             .catch(err => res.json(err));
     },
 
-    //update thought
-    updateThoughts(req, res) {
-        Thoughts.findOne({ _id: params.id })
-            .populate({
-                path: 'reactions',
-                select: '-__v'
-            })
-            .select('-__v')
-            .sort({ _id: -1 })
-            .then(dbThoughtData => {
-                if (!dbThoughtData) {
-                    res.status(404).json({ message: 'Error! No thoughts found with that specific id' });
-                    return;
-                }
-                res.json(dbThoughtData);
-            })
-            .catch(err => {
-                //send 404 if no thought is found with the specific id used
-                console.log(err);
-                res.sendStatus(400);
-            });
-    },
+    //update thought - fix below!!!!
+  // update by id
+  updateThoughts({ params, body }, res) {
+    Thoughts.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
+      .then(dbThoughtData => {
+        if (!dbThoughtData) {
+          res.status(404).json({ message: 'No thoughts found with that id!' });
+          return;
+        }
+        res.json(dbThoughtData);
+      })
+      .catch(err => res.json(err));
+  },
 
 
 }
