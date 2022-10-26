@@ -16,4 +16,11 @@ THEN I am able to successfully create, update, and delete users and thoughts in 
 WHEN I test API POST and DELETE routes in Insomnia
 THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
 
-# Screenshots
+# Installation
+After cloning or downloading a local copy of the repository, from a terminal install the required dependencies that are listed in the package.json file:
+
+npm install
+Once the node_modules folder is created and all dependencies are downloaded, type the following in your terminal:
+
+npm start
+The start command effectively stands in for running "node index.js" as shown in the "scripts" property in the package.json file you download.
